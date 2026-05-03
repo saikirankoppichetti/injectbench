@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evaluate an attack corpus against selected guardrails and show attack success with intervals and latency.">
+  <title>InjectBench · Working Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="masthead"><a class="brand" href="https://github.com/saikirankoppichetti/injectbench">InjectBench</a><span class="build-state"><i></i> live computation</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Prompt-injection evaluation</p>
+      <h1>Run the decision,<br><em>inspect the evidence.</em></h1>
+      <p class="lede">Evaluate an attack corpus against selected guardrails and show attack success with intervals and latency.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive project workspace">
+      <form id="workspace-form" class="control-panel">
+        <div class="panel-heading"><span>01</span><div><p>Inputs</p><h2>Configure the run</h2></div></div>
+        <div class="fields"><label class="field" for="trials"><span>Trials per attack family</span><input id="trials" name="trials" type="number" value="400" min="10" max="10000" step="any" data-suggested-step="10"></label>
+<div class="field field-checkbox"><label class="switch"><input id="instructionFilter" name="instructionFilter" type="checkbox" checked><span>Instruction hierarchy filter</span></label></div>
+<div class="field field-checkbox"><label class="switch"><input id="toolPolicy" name="toolPolicy" type="checkbox" checked><span>Tool allow-list</span></label></div>
+<div class="field field-checkbox"><label class="switch"><input id="outputScanner" name="outputScanner" type="checkbox" checked><span>Output exfiltration scanner</span></label></div>
+<div class="field field-checkbox"><label class="switch"><input id="encodingDetector" name="encodingDetector" type="checkbox"><span>Encoding detector</span></label></div></div>
+        <div class="actions"><button class="run" type="submit">Run analysis <span>→</span></button><button id="reset-button" class="reset" type="button">Reset</button></div>
+      </form>
+      <section id="results" class="result-panel" aria-live="polite" aria-busy="true">
+        <div class="panel-heading"><span>02</span><div><p>Output</p><h2>Decision trace</h2></div></div>
+        <div id="result-content" class="result-content"><div class="loading">Computing initial scenario…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer><p>Built from the tested logic in <a href="https://github.com/saikirankoppichetti/injectbench">saikirankoppichetti/injectbench</a>.</p></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
